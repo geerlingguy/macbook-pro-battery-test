@@ -1,2 +1,5 @@
 # Don't commit test results.
 results/
+
+# Don't commit Drupal VM.
+drupal-vm-master/

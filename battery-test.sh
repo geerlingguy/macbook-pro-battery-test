@@ -26,6 +26,11 @@ printf "Counter,Time,Battery Percentage\n" >> $RESULTS_FILE
 # Counter for how many times the script has looped.
 TIMES_RUN=0
 
+# Get Drupal VM.
+curl -sSL https://github.com/geerlingguy/drupal-vm/archive/master.zip > drupalvm.zip
+unzip drupalvm.zip
+rm drupalvm.zip
+
 # 1 Infinte Loop.
 while :
 do
@@ -34,8 +39,15 @@ do
   BATTERY_PERCENT="$(pmset -g batt | egrep "([0-9]+\%).*" -o --colour=auto | cut -f1 -d';')"
   echo "$TIMES_RUN,$TIMESTAMP,$BATTERY_PERCENT" >> $RESULTS_FILE
 
-  #TODO - The cool stuff.
+  # Build Drupal VM.
+  cd drupal-vm-master
+  vagrant up
+
+  sleep 10
+
+  # Destroy Drupal VM instance.
+  vagrant destroy -f
+  cd ..
 
   TIMES_RUN=$((TIMES_RUN + 1))
-  sleep 1
 done
