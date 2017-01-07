@@ -46,6 +46,7 @@ do
   sleep 10
 
   # Destroy Drupal VM instance.
+  rm -rf drupal
   vagrant destroy -f
   cd ..
 
