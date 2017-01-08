@@ -31,6 +31,9 @@ curl -sSL https://github.com/geerlingguy/drupal-vm/archive/master.zip > drupalvm
 unzip drupalvm.zip
 rm drupalvm.zip
 
+# Create a config.yml script to install Drupal _inside_ the VM.
+echo 'vagrant_synced_folders: []' >> drupal-vm-master/config.yml
+
 # 1 Infinte Loop.
 while :
 do
