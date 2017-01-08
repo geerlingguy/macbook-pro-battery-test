@@ -16,7 +16,7 @@ DATE="$(date +"%Y-%m-%d_%H.%M.%S")"
 
 # Store results in a `results` directory.
 RESULTS_DIR="results"
-RESULTS_FILE="$RESULTS_DIR/$DATE.txt"
+RESULTS_FILE="$RESULTS_DIR/$DATE.csv"
 mkdir -p $RESULTS_DIR
 touch $RESULTS_FILE || exit 1
 
