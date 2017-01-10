@@ -28,7 +28,7 @@ TIMES_RUN=0
 
 # Get Drupal VM.
 curl -sSL https://github.com/geerlingguy/drupal-vm/archive/master.zip > drupalvm.zip
-unzip drupalvm.zip
+unzip -u drupalvm.zip
 rm drupalvm.zip
 
 # Create a config.yml script to install Drupal _inside_ the VM.
