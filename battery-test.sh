@@ -3,8 +3,18 @@
 # MacBook Pro Battery Life Test Script
 # Author: Jeff Geerling, 2017
 
-# Make sure we're on battery (see: http://stackoverflow.com/a/21249561).
-if [[ $(pmset -g ps | head -1) =~ "AC Power" ]]; then
+# Detect if we're on AC or not.
+case "$OSTYPE" in
+  # see: http://stackoverflow.com/a/21249561
+  darwin*) [[ $(pmset -g ps | head -1) =~ "AC Power" ]] && AC=1 || AC=0 ;;
+  # see: https://github.com/oxyc/dotfiles/blob/master/.local/bin/battery
+  linux*) AC=$(cat /sys/class/power_supply/AC/online) ;;
+  # fallback to running the script.
+  *) AC=0 ;;
+esac
+
+# Make sure we're on battery
+if [ $AC -eq 1 ]; then
   printf "\033[0;31mPlease unplug power before starting the test.\033[0m\n"; exit 1;
 fi
 
