@@ -34,6 +34,7 @@ rm drupalvm.zip
 # Create a config.yml script to install Drupal _inside_ the VM.
 cat <<EOT >| drupal-vm-master/config.yml
 vagrant_synced_folders: []
+vagrant_synced_folder_default_type: 'rsync'
 vagrant_hostname: macbook-pro-battery-test.dev
 vagrant_machine_name: macbook_pro_battery_test
 EOT
