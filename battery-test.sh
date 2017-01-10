@@ -32,7 +32,11 @@ unzip -u drupalvm.zip
 rm drupalvm.zip
 
 # Create a config.yml script to install Drupal _inside_ the VM.
-echo 'vagrant_synced_folders: []' >> drupal-vm-master/config.yml
+cat <<EOT >| drupal-vm-master/config.yml
+vagrant_synced_folders: []
+vagrant_hostname: macbook-pro-battery-test.dev
+vagrant_machine_name: macbook_pro_battery_test
+EOT
 
 # 1 Infinte Loop.
 while :
