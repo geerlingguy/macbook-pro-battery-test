@@ -54,7 +54,11 @@ while :
 do
   # Write counter, time, and battery percentage to screen and file.
   TIMESTAMP="$(date +"%Y-%m-%d %H:%M:%S")"
-  BATTERY_PERCENT="$(pmset -g batt | egrep "([0-9]+\%).*" -o --colour=auto | cut -f1 -d';')"
+  case "$OSTYPE" in
+    darwin*) BATTERY_PERCENT="$(pmset -g batt | egrep "([0-9]+\%).*" -o --colour=auto | cut -f1 -d';')" ;;
+    linux*) BATTERY_PERCENT="$(cat /sys/class/power_supply/BAT0/capacity)%" ;;
+    *) BATTERY_PERCENT="?" ;;
+  esac
   echo "$TIMES_RUN,$TIMESTAMP,$BATTERY_PERCENT" >> $RESULTS_FILE
 
   # Build Drupal VM.
