@@ -14,6 +14,10 @@ To run the script, you should already have the latest versions of [Vagrant](http
 
 > **Note about Vagrant plugins**: The author runs the tests without `vagrant-cachier` installed for consistency's sake. If you use Vagrant regularly, check to make sure you don't have any plugins installed which could affect the consistency of this test using `vagrant plugin list`!
 
+## Other Platforms
+
+This test script should run on any platform which supports Vagrant and VirtualBox, though it's only been tested on macOS, Fedora, and Ubuntu at this time.
+
 ## Usage
 
 ### Before running the test script
