@@ -12,6 +12,8 @@ The script does the following, in a loop:
 
 To run the script, you should already have the latest versions of [Vagrant](https://www.vagrantup.com/downloads.html) and [VirtualBox](https://www.virtualbox.org/wiki/Downloads) installed.
 
+> **Note about Vagrant plugins**: The author runs the tests without `vagrant-cachier` installed for consistency's sake. If you use Vagrant regularly, check to make sure you don't have any plugins installed which could affect the consistency of this test using `vagrant plugin list`!
+
 ## Usage
 
 ### Before running the test script
@@ -41,6 +43,11 @@ The results file has the following structure (as an example):
 | 0       | 2017-01-07 16:10:48 | 98%                |
 | 0       | 2017-01-07 16:17:22 | 94%                |
 | ...     | ...                 | ...                |
+
+Results of this script's test runs have been posted to the author's blog and a public Google Sheet:
+
+  - Raw data in Google Sheets: [2016 MacBook Pro Battery Comparisons](https://docs.google.com/spreadsheets/d/16H6TeKCOZRwzsd5bZJM2IHVqN9fU6GZhUrDiu_SK2zU/edit?usp=sharing)
+  - Blog post: [Battery Life - Why I Returned my 2016 MacBook Pro with Touch Bar](http://www.jeffgeerling.com/blog/2017/i-returned-my-2016-macbook-pro-touch-bar#battery-life)
 
 ## Author
 
